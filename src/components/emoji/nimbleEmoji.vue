@@ -1,11 +1,11 @@
 <template>
 
-<span v-if="canRender" class="emoji-mart-emoji" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @click="onClick">
-  <span v-if="isCustom" :title="title" :style="customEmojiStyles"></span>
-  <span v-else-if="isNative" :title="title" :style="nativeEmojiStyles">{{ nativeEmoji }}</span>
-  <span v-else-if="hasEmoji" :title="title" :style="fallbackEmojiStyles"></span>
-  <span v-else>{{ fallbackEmoji }}</span>
-</span>
+  <span v-if="canRender" class="emoji-mart-emoji" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @click="onClick">
+    <span v-if="isCustom" :title="title" :style="customEmojiStyles"></span>
+    <span v-else-if="isNative" :title="title" :style="nativeEmojiStyles">{{ nativeEmoji }}</span>
+    <span v-else-if="hasEmoji" :title="title" :style="fallbackEmojiStyles"></span>
+    <span v-else>{{ fallbackEmoji }}</span>
+  </span>
 
 </template>
 
@@ -25,41 +25,43 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
       mutableData: this.data.compressed ? uncompress(this.data) : this.data,
     }
   },
   computed: {
-    emojiData() {
+    emojiData () {
       return getData(this.emoji, this.skin, this.set, this.mutableData)
     },
-    sanitizedData() {
+    sanitizedData () {
       return getSanitizedData(this.emoji, this.skin, this.set, this.mutableData)
     },
-    canRender() {
-      return this.isCustom || this.isNative || this.hasEmoji || this.fallback
+    canRender () {
+      return (this.emojiData ) && (this.isCustom || this.isNative || this.hasEmoji || this.fallback)
     },
-    isNative() {
+    isNative () {
       return this.native
     },
-    isCustom() {
+    isCustom () {
       return this.emojiData.custom
     },
-    hasEmoji() {
+    hasEmoji () {
       return this.emojiData['has_img_' + this.set]
     },
-    nativeEmoji() {
+    nativeEmoji () {
       if (this.emojiData.unified) {
         return unifiedToNative(this.emojiData.unified)
+      } else if (this.emojiData.native) {
+        return this.emojiData.native
       } else {
         return ''
       }
     },
-    fallbackEmoji() {
+    fallbackEmoji () {
       return this.fallback ? this.fallback(this.emoji) : null
     },
-    nativeEmojiStyles() {
+    nativeEmojiStyles () {
       let styles = { fontSize: this.size + 'px' }
 
       if (this.forceSize) {
@@ -70,7 +72,7 @@ export default {
 
       return styles
     },
-    fallbackEmojiStyles() {
+    fallbackEmojiStyles () {
       if (this.isCustom) {
         return this.customEmojiStyles
       } else if (this.hasEmoji) {
@@ -86,7 +88,7 @@ export default {
         return null
       }
     },
-    customEmojiStyles() {
+    customEmojiStyles () {
       return {
         display: 'inline-block',
         width: this.size + 'px',
@@ -95,25 +97,25 @@ export default {
         backgroundSize: '100%',
       }
     },
-    title() {
+    title () {
       return this.tooltip ? this.emojiData.short_names[0] : null
     }
   },
   methods: {
-    getPosition() {
+    getPosition () {
       let multiply = 100 / (SHEET_COLUMNS - 1),
-          x = multiply * this.emojiData.sheet_x,
-          y = multiply * this.emojiData.sheet_y
+        x = multiply * this.emojiData.sheet_x,
+        y = multiply * this.emojiData.sheet_y
 
       return `${x}% ${y}%`
     },
-    onClick() {
+    onClick () {
       this.$emit('click', this.sanitizedData)
     },
-    onMouseEnter() {
+    onMouseEnter () {
       this.$emit('mouseenter', this.sanitizedData)
     },
-    onMouseLeave() {
+    onMouseLeave () {
       this.$emit('mouseleave', this.sanitizedData)
     }
   }
@@ -122,11 +124,9 @@ export default {
 </script>
 
 <style scoped>
-
 .emoji-mart-emoji {
-  position: relative;
-  display: inline-block;
-  font-size: 0;
+    position: relative;
+    display: inline-block;
+    font-size: 0;
 }
-
 </style>
