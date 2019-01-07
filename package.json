@@ -64,7 +64,6 @@
     "build:dist": "webpack --config src/webpack.config.js",
     "build:docs": "webpack --config docs/webpack.config.js",
     "build": "npm run clean && npm run build:data && npm run build:dist",
-    "dev": "npm run build",
     "dev:docs": "webpack -w --config docs/webpack.config.js",
     "start": "npm run dev:docs",
     "stats": "webpack --config ./spec/webpack.config.js --json > spec/stats.json",
