@@ -15,7 +15,7 @@ function getUrlEmoji(value) {
 }
 
 const data = {
-    compressed: true,
+    compressed: false,
 
     categories: [
         {
@@ -45,6 +45,6 @@ const data = {
     aliases: {}
 }
 
-fs.writeFile(`data/${set}.json`, JSON.stringify(compress(data)), (err) => {
+fs.writeFile(`data/${set}.json`, JSON.stringify(data), (err) => {
     if (err) throw err
 })

@@ -63,7 +63,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist/",
-    "build:data": "node scripts/build-data",
+    "build:data": "node scripts/build-viblo-data",
     "build:dist": "webpack --config src/webpack.config.js",
     "build:docs": "webpack --config docs/webpack.config.js",
     "build": "npm run clean && npm run build:data && npm run build:dist",
