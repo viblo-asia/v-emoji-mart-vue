@@ -2023,6 +2023,10 @@ exports.default = {
       required: true
     }
   }),
+<<<<<<< HEAD
+=======
+
+>>>>>>> feat: add lazy-load icon
   data: function data() {
     return {
       mutableData: this.data.compressed ? (0, _data.uncompress)(this.data) : this.data
@@ -2092,7 +2096,6 @@ exports.default = {
         display: 'inline-block',
         width: this.size + 'px',
         height: this.size + 'px',
-        backgroundImage: 'url(' + this.emojiData.imageUrl + ')',
         backgroundSize: '100%'
       };
     },
@@ -4799,6 +4802,16 @@ var render = function() {
         [
           _vm.isCustom
             ? _c("span", {
+                directives: [
+                  {
+                    name: "lazy",
+                    rawName: "v-lazy:background-image",
+                    value: _vm.emojiData.imageUrl,
+                    expression: "emojiData.imageUrl",
+                    arg: "background-image"
+                  }
+                ],
+                key: _vm.emojiData.imageUrl,
                 style: _vm.customEmojiStyles,
                 attrs: { title: _vm.title }
               })

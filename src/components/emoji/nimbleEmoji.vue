@@ -1,7 +1,7 @@
 <template>
 
   <span v-if="canRender" class="emoji-mart-emoji" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @click="onClick">
-    <span v-if="isCustom" :title="title" :style="customEmojiStyles"></span>
+    <span v-if="isCustom" :title="title" :style="customEmojiStyles" v-lazy:background-image="emojiData.imageUrl" :key="emojiData.imageUrl"></span>
     <span v-else-if="isNative" :title="title" :style="nativeEmojiStyles">{{ nativeEmoji }}</span>
     <span v-else-if="hasEmoji" :title="title" :style="fallbackEmojiStyles"></span>
     <span v-else>{{ fallbackEmoji }}</span>
@@ -93,7 +93,6 @@ export default {
         display: 'inline-block',
         width: this.size + 'px',
         height: this.size + 'px',
-        backgroundImage: 'url(' + this.emojiData.imageUrl + ')',
         backgroundSize: '100%',
       }
     },
