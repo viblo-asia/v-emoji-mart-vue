@@ -25,6 +25,18 @@
   "peerDependencies": {
     "vue": "^2.0.0"
   },
+  "resolutions": {
+    "braces": "2.3.1",
+    "set-value": "3.0.1",
+    "ws": "3.3.1",
+    "mixin-deep": "2.0.1",
+    "js-yaml": "3.13.1",
+    "webpack-bundle-analyzer": "3.3.2",
+    "mem": "4.0.0",
+    "mime": "1.4.1",
+    "debug": "3.1.0",
+    "minimatch": "3.0.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "6.7.2",
@@ -55,12 +67,12 @@
     "twemoji": "^11.2.0",
     "url-loader": "^0.5.8",
     "vue": "^2.5.2",
+    "vue-lazyload": "^1.2.6",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1",
-    "vue-lazyload": "^1.2.6"
+    "webpack-dev-server": "2.11.4"
   },
   "scripts": {
     "clean": "rm -rf dist/",
