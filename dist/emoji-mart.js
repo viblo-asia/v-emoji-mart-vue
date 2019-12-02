@@ -2023,10 +2023,6 @@ exports.default = {
       required: true
     }
   }),
-<<<<<<< HEAD
-=======
-
->>>>>>> feat: add lazy-load icon
   data: function data() {
     return {
       mutableData: this.data.compressed ? (0, _data.uncompress)(this.data) : this.data
