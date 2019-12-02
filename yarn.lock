@@ -5552,9 +5552,12 @@ twemoji@^11.2.0:
   version "11.2.0"
   resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-11.2.0.tgz#3627c3607321bb784bcfb5b65b3b21309c031fa3"
 <<<<<<< HEAD
+<<<<<<< HEAD
   integrity sha512-DgTadXkRHugun6mjUf1k3ni04WC4jHOX1bN5MjuCM3nwRyIMdXIr8FmWzW5mEIZjht5jD3NaEyXC4j3POdQwyQ==
 =======
 >>>>>>> feat: add lazy-load icon
+=======
+>>>>>>> cb5cb7ed1904715bbabbeec669501f9301233482
 
 type-is@~1.6.15, type-is@~1.6.16:
   version "1.6.16"
