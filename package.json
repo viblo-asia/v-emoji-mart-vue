@@ -1,6 +1,6 @@
 {
   "name": "viblo-emoji-mart",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Customizable emoji picker for Viblo",
   "main": "dist/emoji-mart.js",
   "repository": {
@@ -13,7 +13,7 @@
     "emoji",
     "picker"
   ],
-  "author": "Etienne Lemay",
+  "author": "Viblo Team",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/jm-david/emoji-mart-vue/issues"
