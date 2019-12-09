@@ -1,11 +1,11 @@
 {
-  "name": "emoji-mart-vue",
-  "version": "2.6.6",
-  "description": "Customizable Slack-like emoji picker for VueJS",
+  "name": "viblo-emoji-mart",
+  "version": "0.1.0",
+  "description": "Customizable emoji picker for Viblo",
   "main": "dist/emoji-mart.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jm-david/emoji-mart-vue.git"
+    "url": "git@github.com:viblo-asia/v-emoji-mart-vue.git"
   },
   "keywords": [
     "vue",
